@@ -21,14 +21,6 @@ class MyMath {
       return a / b;
     }
 
-    double Sum_(const std::vector<double>& nums) {
-      double sum = 0.0;
-      for (double num : nums) {
-        sum += num;
-      }
-      return sum;
-    }
-
     double CircleSurface_(double radius) {
       return kPi * radius * radius;
     }
@@ -169,9 +161,6 @@ int main() {
       std::cout << "Invalid choice!" << std::endl;
       break;
   }
-  // Implement Input
-
-  std::cout << "Sum is =  " << math_.Sum_(1.0, 1.0) << std::endl;
 
   return 0;
 }
