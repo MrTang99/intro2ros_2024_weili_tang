@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="semantic_camera" type="semantic_camera_node" name="semantic_camera_node" output="screen" />
+  <node pkg="semantic_camera" type="traffic_light_controller" name="traffic_light_controller" output="screen" />
+</launch>
