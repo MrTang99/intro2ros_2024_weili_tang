@@ -3,10 +3,11 @@ project(semantic_camera)
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp
-  std_msgs
   sensor_msgs
-  image_transport
   cv_bridge
+  message_filters
+  image_transport
+  std_msgs
   message_generation
 )
 
@@ -23,7 +24,7 @@ generate_messages(
 )
 
 catkin_package(
-  CATKIN_DEPENDS message_runtime roscpp std_msgs
+  CATKIN_DEPENDS message_runtime roscpp sensor_msgs cv_bridge message_filters image_transport std_msgs
 )
 
 include_directories(
@@ -33,9 +34,10 @@ include_directories(
 )
 
 add_executable(semantic_camera_node src/semantic_camera_node.cpp)
-target_link_libraries(semantic_camera_node ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
-add_dependencies(semantic_camera_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS} semantic_camera_generate_messages_cpp)
-
 add_executable(traffic_light_controller src/traffic_light_controller.cpp)
-target_link_libraries(traffic_light_controller ${catkin_LIBRARIES})
-add_dependencies(traffic_light_controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS} semantic_camera_generate_messages_cpp)
+
+target_link_libraries(semantic_camera_node ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
+target_link_libraries(traffic_light_controller ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
+
+add_dependencies(semantic_camera_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(traffic_light_controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
