@@ -22,7 +22,7 @@ This node processes images from a semantic camera, depth camera, and RGB camera 
 
 #### Parameters
 
-No parameters are currently defined for this node.
+Thresholds for red pixels, green pixels, yellow pixels and black pixels
 
 ### traffic_light_controller
 
@@ -63,4 +63,6 @@ This launch file starts both the `semantic_camera_node` and `traffic_light_contr
   <node name="semantic_camera_node" pkg="semantic_camera" type="semantic_camera_node" output="screen" />
   <node name="traffic_light_controller" pkg="semantic_camera" type="traffic_light_controller" output="screen" />
 </launch>
-
+```
+### Link to the test video
+https://drive.google.com/file/d/1t8bPGd6qGSRm3m2E2T6uNOPorhy4PLG0/view?usp=sharing
