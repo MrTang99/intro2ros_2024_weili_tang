@@ -19,6 +19,13 @@ This node processes images from a depth camera and an RGB camera to detect traff
 
 - `/traffic_light_status` (`traffic_light_detector/TrafficLightStatus`): Traffic light status and distance.
 
+#### Parameters
+Thresholds for red pixels, green pixels, yellow pixels and black pixels
+
+Size of the area of the candidate region
+
+Size of the Region of Interest
+
 #### Functionality
 
 The `traffic_light_detector_node` is responsible for detecting traffic lights and determining their status (Red, Green, Yellow) along with their distance from the vehicle. This node processes images from an RGB camera and a depth camera to identify the presence and color of traffic lights. The detection process involves image processing, ROI definition, color detection, contour detection, selection of the closest traffic light, color identification, distance calculation, and publishing of the detected traffic light status and distance.
@@ -59,3 +66,6 @@ Low Resolution of RGB Camera: The low resolution of the RGB camera can lead to i
 Environmental Light Interference: Variations in environmental lighting conditions, such as shadows, glare, and changes in brightness, can affect the accuracy of color-based detection. These interferences can cause the algorithm to misclassify or fail to detect traffic lights.
 
 Cluster Algorithm Limitations: The clustering algorithm used to identify traffic light colors sometimes fails due to the above issues, leading to incorrect traffic light color identification. This can impact the decision-making process of the vehicle control node.
+
+## Link to the test video
+https://drive.google.com/file/d/1h6ljJUdehGCnt2qPIu5kn_l8KJ_z_ggH/view?usp=sharing
